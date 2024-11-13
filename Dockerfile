@@ -2,10 +2,10 @@
 FROM python:3.11.10-slim
 
 # Establece el directorio de trabajo dentro del contenedor
-WORKDIR /app
+WORKDIR /app1cherrypy
 
 # Copia el archivo de código de la aplicación al contenedor
-COPY . /app
+COPY . /app1cherrypy
 
 # Instala CherryPy
 RUN pip install cherrypy
@@ -14,4 +14,4 @@ RUN pip install cherrypy
 EXPOSE 8080
 
 # Define el comando para ejecutar la aplicación
-CMD ["python", "app.py"]
+CMD ["python", "calculator.py"]
