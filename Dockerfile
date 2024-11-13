@@ -4,8 +4,8 @@ FROM python:3.9-slim
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el archivo de requisitos y la aplicación al contenedor
-COPY app.py /app/app.py
+# Copia el archivo de la aplicación al contenedor
+COPY calculator.py /app/calculator.py
 
 # Instala CherryPy
 RUN pip install cherrypy
@@ -14,4 +14,4 @@ RUN pip install cherrypy
 EXPOSE 8080
 
 # Ejecuta la aplicación CherryPy
-CMD ["python", "app.py"]
+CMD ["python", "calculator.py"]
