@@ -1,10 +1,8 @@
 import cherrypy
 
-
 class Calculadora:
     @cherrypy.expose
     def index(self):
-        # HTML de la calculadora (solo suma y resta)
         return '''
             <html>
                 <head>
@@ -34,11 +32,9 @@ class Calculadora:
     @cherrypy.expose
     def result(self, num1, num2, operation):
         try:
-            # Convertir los valores ingresados a números flotantes
             num1 = float(num1)
             num2 = float(num2)
 
-            # Realizar la operación seleccionada
             if operation == 'sumar':
                 resultado = num1 + num2
             elif operation == 'restar':
@@ -48,7 +44,6 @@ class Calculadora:
         except ValueError:
             resultado = "Error: Por favor ingresa números válidos"
 
-        # Mostrar el resultado
         return f'''
             <html>
                 <head><title>Resultado</title></head>
@@ -60,6 +55,6 @@ class Calculadora:
             </html>
         '''
 
-
 if __name__ == '__main__':
+    cherrypy.config.update({'server.socket_host': '0.0.0.0', 'server.socket_port': 8080})
     cherrypy.quickstart(Calculadora())
